@@ -1,0 +1,218 @@
+/* Estilo geral inspirado na paleta de cores de The Walking Dead */
+:root {
+    --dark-brown: #2c2416;
+    --medium-brown: #5a4d41;
+    --light-brown: #8c7a6b;
+    --dark-green: #2a3a2a;
+    --medium-green: #4a5a4a;
+    --accent-red: #8b0000;
+    --text-color: #d8d0c8;
+    --background-color: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--medium-brown);
+    padding-bottom: 15px;
+}
+
+h1 {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.subtitle {
+    font-style: italic;
+    color: var(--light-brown);
+    margin-top: 5px;
+}
+
+.game-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+canvas {
+    background-color: var(--dark-brown);
+    border: 3px solid var(--medium-brown);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    height: auto;
+}
+
+.instructions, .controls {
+    background-color: var(--dark-green);
+    border: 1px solid var(--medium-green);
+    padding: 15px;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 300px;
+}
+
+h3 {
+    color: var(--light-brown);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--medium-brown);
+    padding-bottom: 5px;
+}
+
+.control-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.slider {
+    width: 100%;
+    height: 8px;
+    background: var(--medium-brown);
+    outline: none;
+    border-radius: 4px;
+    -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-red);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-red);
+    cursor: pointer;
+}
+
+.control-group.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.control-group.checkbox input {
+    margin-right: 10px;
+}
+
+button {
+    background-color: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #a00000;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--dark-green);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 0 15px;
+}
+
+.stat-label {
+    font-weight: bold;
+    color: var(--light-brown);
+}
+
+.stat-value {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin-left: 5px;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--light-brown);
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid var(--medium-brown);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .game-area {
+        flex-direction: column;
+    }
+    
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Efeitos visuais para elementos do jogo */
+.walker {
+    filter: drop-shadow(0 0 3px rgba(139, 0, 0, 0.7));
+}
+
+.survivor {
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+}
+
+.sound-ripple {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: ripple 2s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}

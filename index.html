@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarm Protocol: Walkers Unleashed</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Swarm Protocol: Walkers Unleashed</h1>
+            <div class="subtitle">Um jogo inspirado em The Walking Dead</div>
+        </header>
+
+        <div class="game-area">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <div class="instructions">
+                <h3>Instruções</h3>
+                <p>Clique na tela para criar um evento sonoro que atrairá os walkers.</p>
+                <p>Observe como os walkers se comportam em grupo seguindo regras simples de IA.</p>
+            </div>
+            
+            <div class="controls">
+                <h3>Controles</h3>
+                
+                <div class="control-group">
+                    <label for="walkerCount">Número de Walkers:</label>
+                    <input type="range" id="walkerCount" min="10" max="100" value="30" class="slider">
+                    <span id="walkerCountValue">30</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="soundRadius">Raio de Som:</label>
+                    <input type="range" id="soundRadius" min="50" max="300" value="150" class="slider">
+                    <span id="soundRadiusValue">150</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="walkerSpeed">Velocidade dos Walkers:</label>
+                    <input type="range" id="walkerSpeed" min="0.5" max="3" step="0.1" value="1" class="slider">
+                    <span id="walkerSpeedValue">1</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="flockingStrength">Intensidade do Bando:</label>
+                    <input type="range" id="flockingStrength" min="0" max="1" step="0.1" value="0.5" class="slider">
+                    <span id="flockingStrengthValue">0.5</span>
+                </div>
+                
+                <div class="control-group checkbox">
+                    <input type="checkbox" id="showObstacles" checked>
+                    <label for="showObstacles">Mostrar Obstáculos</label>
+                </div>
+                
+                <div class="control-group checkbox">
+                    <input type="checkbox" id="showSurvivors" checked>
+                    <label for="showSurvivors">Incluir Sobreviventes</label>
+                </div>
+                
+                <button id="resetButton">Reiniciar Simulação</button>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Walkers Ativos:</span>
+                <span id="activeWalkers" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Hordas Formadas:</span>
+                <span id="hordeCount" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Sobreviventes:</span>
+                <span id="survivorCount" class="stat-value">0</span>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Desenvolvido como projeto educacional inspirado em The Walking Dead</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
